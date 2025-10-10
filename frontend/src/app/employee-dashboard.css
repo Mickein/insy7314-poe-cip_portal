@@ -1,0 +1,23 @@
+.button-spacing {
+    margin-right: 10px; 
+  }
+
+  .verify-btn {
+  background-color: #28a745 !important;
+  color: #fff !important;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.decline-btn {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-spacing {
+  margin-right: 5px;
+}
