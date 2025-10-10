@@ -47,4 +47,5 @@ jobs:
       - name: Run frontend tests
         run: |
           cd frontend
+          npm ci
           npm test -- --watchAll=false
