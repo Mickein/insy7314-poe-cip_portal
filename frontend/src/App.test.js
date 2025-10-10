@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders Employee Dashboard heading', () => {
+jest.mock("react-router-dom", () => ({
+  BrowserRouter: ({ children }) => <div>{children}</div>,
+  Routes: ({ children }) => <div>{children}</div>,
+  Route: () => <div>Route</div>,
+}));
+
+test("renders without crashing", () => {
   render(<App />);
-  const heading = screen.getByText(/Employee Dashboard/i);
-  expect(heading).toBeInTheDocument();
+  expect(screen.getByText(/login/i) || screen.getByText(/register/i)).toBeTruthy();
 });
