@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const helmet = require('helmet');
 const https = require('https');
+const http = require('http')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt');  // For hashing passwords
-const cors = require('cors'); // To allow requests from Angular
+const bcrypt = require('bcrypt'); 
+const cors = require('cors');
 const app = express();
-const port = 3001; 
+const httpsport = 3001; 
+const httpPort = 3000;
 const bodyparser = require('body-parser')
 
 //Middleware:
@@ -294,9 +296,16 @@ app.get('/payments', async (req, res) => {
 
 // Start the server
 const httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port, () => {
-  console.log(`Server started on https://localhost:${port}`);
+httpsServer.listen(httpsport, () => {
+  console.log(`Server started on https://localhost:${httpsport}`);
 });
 
-
+// Create HTTP server to redirect all traffic to HTTPS
+http.createServer((req, res) => {
+  const host = req.headers['host'].replace(/:\d+$/, `:${httpsPort}`);
+  res.writeHead(301, { "Location": `https://${host}${req.url}` });
+  res.end();
+}).listen(httpPort, () => {
+  console.log(`HTTP Server listening on port ${httpPort} and redirecting to HTTPS`);
+});
 

@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      # Backend tests
       - name: Install Backend dependencies
         run: |
           cd backend
