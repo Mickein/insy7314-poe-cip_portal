@@ -17,11 +17,11 @@ jobs:
         node-version: [20.16.0]
 
     steps:
-      # 1️⃣ Checkout the repo
+      # Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Set up Node.js
+      # Set up Node.js
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -38,13 +38,13 @@ jobs:
           npm test
 
 
-      # 4️⃣ Frontend tests
+      # Frontend tests
       - name: Install frontend dependencies
         run: |
           cd frontend
-          npm install
+          npm ci
 
       - name: Run frontend tests
         run: |
           cd frontend
-          npm test
+          npm test -- --watchAll=false
