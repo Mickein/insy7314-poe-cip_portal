@@ -4,8 +4,10 @@ jobs:
   build-frontend:
     docker:
       - image: cimg/node:18.17
+    working_directory: ~/project
     steps:
       - checkout
+      # Move into frontend folder
       - run:
           name: Install frontend dependencies
           command: cd frontend && npm install
@@ -13,13 +15,13 @@ jobs:
           name: Run frontend tests
           command: cd frontend && npm test -- --coverage || echo "Tests skipped"
       - run:
-          name: Install Sonar Scanner
-          command: npm install -g sonarqube-scanner
+          name: Install Sonar Scanner locally
+          command: cd frontend && npm install sonarqube-scanner
       - run:
           name: Run SonarCloud Scan
           command: |
             cd frontend
-            sonar-scanner \
+            npx sonarqube-scanner \
               -Dsonar.projectKey=ST10215473_insy7314-poe-cip_portal \
               -Dsonar.organization=ST10215473 \
               -Dsonar.sources=src \
