@@ -23,7 +23,7 @@ jobs:
             cd frontend
             npx sonarqube-scanner \
               -Dsonar.projectKey=Mickein_insy7314-poe-cip_portal \
-              -Dsonar.organization=st10215473 \
+              -Dsonar.organization=mickein \
               -Dsonar.sources=src \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=${SONAR_TOKEN}
