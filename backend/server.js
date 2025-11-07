@@ -70,7 +70,7 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   surname: { type: String, required: true },
   idNumber: { type: String, required: true, unique: true },
-  accNumber: { type: String, required: true, unique: true }, // Ensure this is unique
+  accNumber: { type: String, required: true, unique: true }, 
   password: { type: String, required: true },
   role: { type: String, enum: ['user', 'employee'], default: 'user' }
 });
@@ -214,14 +214,14 @@ app.post('/register', async (req, res) => {
 
 // Handle user login
 app.post('/login', async (req, res) => {
-  const { idNumber, password } = req.body; // Ensure these match the incoming request
+  const { idNumber, password } = req.body; 
 
   if (!idNumber || !password) {
     return res.status(400).json({ error: 'ID Number and Password are required' });
   }
 
   try {
-    // Assuming you have separate collections for users and employees
+  
     const user = await User.findOne({ idNumber });
     const employee = await Employee.findOne({ idNumber }); // Check if it's an employee
 

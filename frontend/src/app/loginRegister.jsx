@@ -80,7 +80,7 @@ export default function Login() {
       </div>
 
       <div className="login-container">
-        {/* REGISTER FORM */}
+        {/* REGISTER FORM
         {activeForm === "register" && (
           <form onSubmit={registerForm}>
             <h2>REGISTER</h2>
@@ -134,7 +134,7 @@ export default function Login() {
               Already have an Account? <span className="highlighted">LOGIN</span>
             </p>
           </form>
-        )}
+        )} */}
 
         {/* LOGIN FORM */}
         {activeForm === "login" && (
@@ -160,9 +160,9 @@ export default function Login() {
             </div>
             <button type="submit">Log-in</button>
 
-            {<p onClick={() => toggleForm("register")}>
+            {/* {<p onClick={() => toggleForm("register")}>
               Don't have an Account? <span className="highlighted">REGISTER</span>
-            </p>}
+            </p>} */}
           </form>
         )}
       </div>

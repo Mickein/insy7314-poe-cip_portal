@@ -36,7 +36,6 @@ export default function Dashboard() {
       });
       toast.success("Payment Request Submitted ✅");
 
-      // optional: reset form
       setCompletedPayment({
         idNumber: "",
         recipientName: "",
@@ -49,7 +48,6 @@ export default function Dashboard() {
         ownReference: ""
       });
 
-      // reload outstanding payments after submit
       fetchOutstandingPayments();
     } catch (error) {
       console.error("Error during submission:", error);
