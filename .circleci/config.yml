@@ -4,6 +4,7 @@ jobs:
   build:
     docker:
       - image: cimg/node:18.17
+    working_directory: ~/project/cip-portal
     steps:
       - checkout
       - run:
