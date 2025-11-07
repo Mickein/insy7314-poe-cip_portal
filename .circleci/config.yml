@@ -8,17 +8,17 @@ jobs:
       - checkout
       - run:
           name: Install frontend dependencies
-          command: cd cip-portal/frontend && npm install
+          command: cd CIP_PORTAL/frontend && npm install
       - run:
           name: Run frontend tests
-          command: cd cip-portal/frontend && npm test -- --coverage || echo "Tests skipped"
+          command: cd CIP_PORTAL/frontend && npm test -- --coverage || echo "Tests skipped"
       - run:
           name: Install Sonar Scanner
           command: npm install -g sonarqube-scanner
       - run:
           name: Run SonarCloud Scan
           command: |
-            cd cip-portal/frontend
+            cd CIP_PORTAL/frontend
             sonar-scanner \
               -Dsonar.projectKey=ST10215473_insy7314-poe-cip_portal \
               -Dsonar.organization=ST10215473 \
