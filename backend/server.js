@@ -65,6 +65,7 @@ mongoose.connect('mongodb+srv://mahathorushil59:eWGRCQWc6G9LqvGq@cluster0.zgl7b.
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
 
+  
 // Define the User model
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
